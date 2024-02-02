@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "es6",
     "module": "commonjs",
+    "lib": [
+      "dom",
+      "es6",
+      "es2017",
+      "esnext.asynciterable"
+    ],
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "moduleResolution": "node",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
@@ -12,18 +17,16 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false
+    "noFallthroughCasesInSwitch": true
   },
+  "compileOnSave": true,
   "include": [
     "./src/**/*.tsx",
     "./src/**/*.ts"

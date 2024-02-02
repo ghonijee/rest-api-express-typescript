@@ -1,7 +1,6 @@
 {
     "watch": [
-        "src",
-        "database"
+        "src"
     ],
     "ext": "ts"
 }

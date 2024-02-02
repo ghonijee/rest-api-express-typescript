@@ -1,7 +1,7 @@
-import dotenv from "dotenv"
+import { config } from "dotenv"
 import { DataSourceOptions } from "typeorm";
 
-dotenv.config()
+config()
 
 export const DbConfig: DataSourceOptions = {
   host: process.env.DB_HOST,

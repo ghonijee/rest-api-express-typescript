@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import Config from "../database/config";
+import Config from "database/config";
 
 const dataSource = new DataSource(Config);
 
@@ -13,7 +13,7 @@ export const initializeDatabase = async () => {
   } catch (error) {
     console.error("Error during Data Source initialization", error)
 
-    throw new error;
+    throw new Error(error as string);
   }
 }
 

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "dev": "nodemon src/main.ts",
-    "start:dev": "debug=* NODE_PATH=./src ts-node-dev --respawn ./src/main.ts",
+    "start:dev": "debug=* ts-node-dev -r tsconfig-paths/register --respawn ./src/main.ts",
+    "start": "debug=* ts-node -r tsconfig-paths/register --respawn ./src/main.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:create": "ts-node-commonjs migration:create .src/database/migrations/$npm_config_name",
+    "migration:create": "typeorm-ts-node-commonjs migration:create ./src/database/migrations/$npm_config_name",
     "migration:run": "typeorm-ts-node-commonjs migration:run -d src/utils/database.ts",
     "migration:rollback": "typeorm-ts-node-commonjs migration:revert -d src/utils/database.ts"
   },
@@ -19,9 +19,9 @@
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mysql2": "^3.9.1",
+    "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "0.3.20",
-    "pg": "^8.4.0"
+    "typeorm": "0.3.20"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -30,6 +30,7 @@
     "nodemon": "^3.0.3",
     "ts-node": "10.9.1",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "4.5.2"
   }
 }
