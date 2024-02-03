@@ -1,7 +1,7 @@
 import { IsNotEmpty, ValidationError, validate } from "class-validator"
 import { Request } from "express"
 import { RequestDTO } from "src/commons/dto"
-import { hashPassword } from "src/commons/password.helper"
+import { Password } from "src/commons/password.helper"
 import { User } from "src/entities/user.entity"
 
 export class CreateUserDto extends RequestDTO {
@@ -36,7 +36,7 @@ export class CreateUserDto extends RequestDTO {
     user.fullname = this.fullname
     user.username = this.username
     user.email = this.email
-    user.password = hashPassword(this.password)
+    user.password = Password.hashPassword(this.password)
     return user;
   }
 }
