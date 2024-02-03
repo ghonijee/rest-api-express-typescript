@@ -1,8 +1,8 @@
 {
-  "name": "be-express-api",
+  "name": "rest-api-express-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": ".src/main.ts",
   "scripts": {
     "build": "npx tsc",
     "start:dev": "debug=* ts-node-dev -r tsconfig-paths/register --respawn ./src/main.ts",
