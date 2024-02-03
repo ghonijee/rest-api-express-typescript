@@ -7,15 +7,17 @@
     "build": "npx tsc",
     "start:dev": "debug=* ts-node-dev -r tsconfig-paths/register --respawn ./src/main.ts",
     "start": "debug=* ts-node -r tsconfig-paths/register --respawn ./src/main.ts",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:create": "typeorm-ts-node-commonjs migration:create ./src/database/migrations/$npm_config_name",
-    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/utils/database.ts",
-    "migration:rollback": "typeorm-ts-node-commonjs migration:revert -d src/utils/database.ts"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:create": "npm run typeorm migration:create -- ./src/database/migrations/$npm_config_name",
+    "migration:run": "npm run typeorm migration:run -- -d src/utils/database.ts",
+    "migration:rollback": "npm run typeorm migration:revert -- -d src/utils/database.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "class-validator": "^0.14.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mysql2": "^3.9.1",

@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableColumn } from "typeorm";
 
 export class CreateRolesTable1706795866672 implements MigrationInterface {
 
@@ -28,27 +28,12 @@ export class CreateRolesTable1706795866672 implements MigrationInterface {
                 },
             ]
         }));
-
-        await queryRunner.createTable(new Table({
-            name: "user_roles",
-            columns: [
-                {
-                    name: "user_id",
-                    type: "int",
-                    isNullable: false
-                },
-                {
-                    name: "role_id",
-                    type: "int",
-                    isNullable: false
-                }
-            ]
-        }));
+        await queryRunner.query("ALTER TABLE `users` ADD COLUMN `role_id` INT DEFAULT NULL AFTER id");
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("roles");
-        await queryRunner.dropTable("user_roles");
+        await queryRunner.dropColumn("users", "role_id");
     }
 
 }

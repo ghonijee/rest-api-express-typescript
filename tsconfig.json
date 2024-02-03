@@ -17,12 +17,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "baseUrl": "./src",
-    "paths": {
-      "*": [
-        "*"
-      ]
-    },
+    "baseUrl": "./",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },

@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { Role } from "entities/role.entity";
-import dataSource from "utils/database";
+import { createUserController } from "src/controllers/user/create-user.controller";
+import { Role } from "src/entities/role.entity";
+import dataSource from "src/utils/database";
 
 const router = Router();
 // User
-router.get("/users", (req, res) => { });
+router.post("/users", createUserController);
 
 // Role
 router.get("/roles", async (req, res) => {
